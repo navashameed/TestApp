@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="user"
+            type="com.test.app.model.User" />
+
+        <variable
+            name="onClickListener"
+            type="com.test.app.view.adapter.UserlistAdapter.OnItemClickListener" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/default_margin"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginRight="@dimen/default_margin"
+        android:layout_marginBottom="@dimen/margin_medium"
+        android:background="@color/background_blue"
+        android:onClick="@{()-> onClickListener.onItemClick(user.id)}"
+        android:padding="@dimen/default_padding">
+
+        <TextView
+            android:id="@+id/nameTitle"
+            style="@style/TextStyleNormal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name: "
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/nameValue"
+            style="@style/TextStyleNormal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/default_margin"
+            android:Text="@{user.name}"
+            app:layout_constraintLeft_toRightOf="@id/barrier_title"
+            app:layout_constraintTop_toTopOf="@id/nameTitle"
+            tools:text="John" />
+
+        <TextView
+            android:id="@+id/emailTitle"
+            style="@style/TextStyleNormal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Email: "
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/nameTitle" />
+
+        <TextView
+            android:id="@+id/emailValue"
+            style="@style/TextStyleNormal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/default_margin"
+            android:Text="@{user.email}"
+            app:layout_constraintLeft_toRightOf="@id/barrier_title"
+            app:layout_constraintTop_toTopOf="@id/emailTitle"
+            tools:text="someemail@abcd.com" />
+
+        <TextView
+            android:id="@+id/phoneTitle"
+            style="@style/TextStyleNormal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Phone: "
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/emailTitle" />
+
+        <TextView
+            android:id="@+id/phoneValue"
+            style="@style/TextStyleNormal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/default_margin"
+            android:Text="@{user.phone}"
+            app:layout_constraintLeft_toRightOf="@id/barrier_title"
+            app:layout_constraintTop_toTopOf="@id/phoneTitle"
+            tools:text="123456678" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="end"
+            app:constraint_referenced_ids="nameTitle,phoneTitle,emailTitle"
+            tools:layout_editor_absoluteX="395dp"
+            tools:layout_editor_absoluteY="16dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

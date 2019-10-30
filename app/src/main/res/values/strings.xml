@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">TestApp</string>
+
+    <string name="user_list_title">User info</string>
+    <string name="album_list_title">User Albums</string>
+    <string name="album_detail_title">Album detail</string>
+
+</resources>
